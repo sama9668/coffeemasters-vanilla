@@ -21,6 +21,7 @@ connectedCallback() {
     window.addEventListener('appmenuchange',  () => {
         this.render();
     })
+    this.render();
 }
 
  render(){
