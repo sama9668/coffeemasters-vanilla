@@ -6,7 +6,7 @@ export async function loadData(){
 }
 
 export async function getProductById(id){
-    if(app.menu.store == null){
+    if(app.store.menu == null){
         await loadData()
 }
 for (let c of app.store.menu) {

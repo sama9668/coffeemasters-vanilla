@@ -7,13 +7,16 @@ const Router = {
                 Router.go(route);
             });
         });
+        window.addEventListener('popstate', (e)=>{
+            Router.go(e.state.route, false);
+        })
         Router.go(location.pathname);
     },
     go: (route,addToHistory=true) =>{
         console.log(`going to ${route}`);   
 
         if(addToHistory){
-            history.pushState({route}, '', route);
+            history.pushState({route}, '',route);
         }
 
         let pageElement=null;

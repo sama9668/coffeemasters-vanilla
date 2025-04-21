@@ -1,6 +1,6 @@
 import { getProductById } from '../services/Menu.js';
-
-export default class DetailsPage extends HTMLElement {
+import { addToCart } from '../services/Order.js';
+export class DetailsPage extends HTMLElement {
 
     constructor() {
         super();
@@ -21,8 +21,9 @@ export default class DetailsPage extends HTMLElement {
     }   
 
     async renderData() {
-        if (this.dataset.productId) {
-            this.product = await getProductById(this.dataset.productId);
+        if (this.dataset.id) {
+            this.product = await getProductById(this.dataset.id);
+            console.log(this.product);
             this.root.querySelector("h2").textContent = this.product.name;
             this.root.querySelector("img").src = `/data/images/${this.product.image}`;
             this.root.querySelector(".description").textContent = this.product.description;
